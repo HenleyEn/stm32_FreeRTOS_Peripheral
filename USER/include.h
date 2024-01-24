@@ -5,10 +5,10 @@
 #include "FreeRTOS.h"
 #include "FreeRTOSConfig.h"
 #include "task.h"
-#include "USART.h"
 
+#include "ProjectConfig.h"
 
-
+#include "SEGGER_RTT.h"
 
 
 
