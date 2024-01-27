@@ -11,20 +11,21 @@
 #ifdef LED_MODULE
 
 /* GPIOA */
-#define LED_PORT		GPIOA
-#define CLOCK_CONFIG 	RCC_APB2Periph_GPIOA
-#define LED_0			GPIO_Pin_0
-#define LED_1			GPIO_Pin_1
-#define LED_2			GPIO_Pin_2
-#define LED_ALL 		LED_0 | LED_1 | LED_2
+#define LED_PORT			GPIOA
+#define LED_CLOCK_CONFIG 	RCC_APB2Periph_GPIOA
+#define LED_0				GPIO_Pin_0
+#define LED_1				GPIO_Pin_1
+#define LED_2				GPIO_Pin_2
+#define LED_ALL 			LED_0 | LED_1 | LED_2
+
 void led_init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	
-	RCC_APB2PeriphClockCmd(CLOCK_CONFIG, ENABLE);
+	RCC_APB2PeriphClockCmd(LED_CLOCK_CONFIG, ENABLE);
 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-	GPIO_InitStructure.GPIO_Pin = LED_0 | LED_1 | LED_2;
+	GPIO_InitStructure.GPIO_Pin = LED_ALL;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_Init(LED_PORT, &GPIO_InitStructure);	
 
